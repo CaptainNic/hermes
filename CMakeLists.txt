@@ -275,6 +275,9 @@ set(EMSCRIPTEN_FASTCOMP OFF CACHE BOOL
 set(HERMES_ENABLE_INTL OFF CACHE BOOL
   "Enable JS Intl support (WIP)")
 
+set(HERMES_ENABLE_CRYPTO OFF CACHE BOOL
+  "Enable limited W3C Crypto API support (WIP)")
+
 set(HERMES_ENABLE_TEST_SUITE ON CACHE BOOL
   "Enable the test suite")
 
@@ -465,6 +468,10 @@ endif()
 
 if (HERMES_ENABLE_INTL)
   add_definitions(-DHERMES_ENABLE_INTL)
+endif()
+
+if (HERMES_ENABLE_CRYPTO)
+  add_definitions(-DHERMES_ENABLE_CRYPTO)
 endif()
 
 if (HERMES_ENABLE_WERROR)
