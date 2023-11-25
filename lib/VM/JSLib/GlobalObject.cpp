@@ -808,6 +808,16 @@ void initGlobalObject(Runtime &runtime, const JSLibFlags &jsLibFlags) {
         intl::createIntlObject(runtime)));
   }
 #endif
+
+#ifdef HERMES_ENABLE_CRYPTO
+  // Define the global crypto object
+  runtime.ignoreAllocationFailure(JSObject::defineOwnProperty(
+      runtime.getGlobal(),
+      runtime,
+      Predefined::getSymbolID(Predefined::crypto),
+      normalDPF,
+      createCryptoObject(runtime)));
+#endif
 }
 
 } // namespace vm

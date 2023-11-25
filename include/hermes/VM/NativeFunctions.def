@@ -467,5 +467,9 @@ NATIVE_FUNCTION(intlStringPrototypeToLocaleLowerCase)
 NATIVE_FUNCTION(intlStringPrototypeToLocaleUpperCase)
 #endif
 
+#ifdef HERMES_ENABLE_CRYPTO
+NATIVE_FUNCTION(cryptoRandomUUID)
+#endif
+
 #undef NATIVE_FUNCTION
 #undef NATIVE_CONSTRUCTOR

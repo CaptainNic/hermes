@@ -121,6 +121,7 @@ set(source_files
   JSLib/eval.cpp
   JSLib/escape.cpp
   JSLib/require.cpp
+  JSLib/crypto.cpp
 )
 
 if (${HERMESVM_GCKIND} STREQUAL "MALLOC")
@@ -174,6 +175,10 @@ set(link_libs
 
 if(HERMES_ENABLE_INTL)
   list(APPEND link_libs hermesPlatformIntl)
+endif()
+
+if(HERMES_ENABLE_CRYPTO)
+  list(APPEND link_libs hermesPlatformCrypto)
 endif()
 
 add_hermes_library(hermesVMRuntime STATIC ${source_files}

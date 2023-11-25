@@ -542,6 +542,10 @@ CallResult<HermesValue> addEntriesFromIterable(
 Handle<JSObject> createInstrumentObject(Runtime &runtime);
 #endif
 
+#ifdef HERMES_ENABLE_CRYPTO
+Handle<JSObject> createCryptoObject(Runtime &runtime);
+#endif
+
 } // namespace vm
 
 #ifdef HERMES_ENABLE_INTL
